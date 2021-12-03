@@ -32,11 +32,11 @@ main {
 }
 
 .weather-info__search-view {
-    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    height: 200px;
 }
 
 .weather-info__search-view label {
@@ -51,8 +51,8 @@ main {
 }
 
 .weather-info__search-view button {
-    border: 2px solid black;
     padding: 10px 50px;
+    border: 2px solid black;
     font-size: 100%;
 }
 
