@@ -1,0 +1,57 @@
+h1 {font-size: 72px;}
+h2 {font-size: 38px;}
+
+.container {
+    width: 1120px;
+}
+
+.weather-info__search-view {
+    margin: 30vh auto 0 auto;
+}
+
+.weather-info__header {
+    margin: 20px 0 60px 0;
+}
+
+.townIcon {
+    height: 56px;
+    width: 56px;
+}
+
+.weather-info__btn-return {
+    width: 150px;
+}
+
+.weather-info__block {
+    width: 540px;
+    height: 360px;
+    margin-bottom: 40px;
+    padding: 70px 70px;
+}
+
+.weatherIcon {
+    margin-top: 60px;
+    height: 140px;
+}
+
+.weather-info__temperatures p {
+    margin-top: 40px;
+}
+
+.humidity_graph {
+    left: 35.5%;
+    bottom: 18%;
+}
+
+.wind-info p {
+    margin-top: 40px;
+}
+
+.weather-info__visibility-data {
+    margin: 15px auto 0 auto;
+    height: 80%;
+}
+
+.mountainIcon {
+    margin-bottom: 0;
+}

@@ -1,0 +1,86 @@
+h1 {font-size: 60px;}
+h2 {font-size: 36px;}
+
+.container {
+    width: 960px;
+}
+
+.weather-info__search-view {
+    margin: 24vh auto 0 auto;
+}
+
+.weather-info__header {
+    margin: 15px 0 30px 0;
+}
+
+.townIcon {
+    height: 50px;
+    width: 50px;
+}
+
+.weather-info__btn-return {
+    width: 140px;
+    height: 38px;
+    padding: 10px 50px;
+}
+
+.weather-info__block {
+    width: 465px;
+    height: 300px;
+    margin-bottom: 30px;
+    padding: 50px 50px;
+}
+
+.weatherIcon {
+    margin-top: 60px;
+    height: 130px;
+}
+
+.weather-info__temperatures p {
+    margin-top: 30px;
+}
+
+.humidity_graph {
+    left: 35%;
+    bottom: 14%;
+}
+
+.humidity_graph svg {
+    transform: scale(1);
+}
+
+.wind-info p {
+    margin-top: 30px;
+}
+
+.airscrew-1 {
+    left: -10px;
+    bottom: 60px;
+}
+
+.mast-1 {
+    width: 7px;
+    left: 31px;
+    bottom: 21px;
+}
+
+.airscrew-2 {
+    left: 70px;
+    bottom: 30px;
+}
+
+.mast-2 {
+    left: 102px;
+    bottom: 0px;
+}
+
+.weather-info__visibility-data {
+    margin: 6px auto 0 auto;
+    height: 80%;
+}
+
+.mountainIcon {
+    margin-bottom: 7px;
+    height: 140px;
+    width: 140px;
+}
