@@ -51,7 +51,8 @@ class WeatherApp {
             this.viewElems.weatherForecastView.style.display = 'block';
         } else {
             this.viewElems.weatherForecastView.style.display = 'none';
-            this.viewElems.weatherSearchView.style.display = 'flex';
+            this.viewElems.weatherSearchView.style.display = 'block';
+            this.viewElems.searchInput.value = '';
         }
     }
 
@@ -69,6 +70,7 @@ class WeatherApp {
         this.fadeInOut();
     
         const weather = data.consolidated_weather[0];
+        console.log(weather);
     
         this.viewElems.weatherCity.innerText = data.title;
         this.viewElems.weatherIcon.src = `https://www.metaweather.com/static/img/weather/${weather.weather_state_abbr}.svg`;
@@ -77,11 +79,30 @@ class WeatherApp {
         const currTemp = weather.the_temp.toFixed(2);
         const maxTemp = weather.max_temp.toFixed(2);
         const minTemp = weather.min_temp.toFixed(2);
+
+        const humidity = weather.humidity;
+
+        const windDirection = weather.wind_direction_compass;
+        const windSpeed = (weather.wind_speed * 0.62137).toFixed(2);
+        const rotationSpeed = (30 / windSpeed).toFixed(2);
+
+        const visibility = (weather.visibility * 0.62137).toFixed(2);
+        const visibilityMountain = (visibility / 12).toFixed(2);
     
-    
-        this.viewElems.weatherCurrentTemp.innerText = `Current temperature: ${currTemp} °C`;
-        this.viewElems.weatherMaxTemp.innerText = `Max temperature: ${maxTemp} °C`;
-        this.viewElems.weatherMinTemp.innerText = `Min temperature: ${minTemp} °C`;
+        this.viewElems.weatherCurrentTemp.innerText = `Temp ${currTemp} °C`;
+        this.viewElems.weatherMaxTemp.innerText = `${maxTemp} °C`;
+        this.viewElems.weatherMinTemp.innerText = `${minTemp} °C`;
+
+        this.viewElems.humidity_info.innerText = `${humidity}%`;
+        this.viewElems.humidity_data.style.strokeDashoffset = `calc(440 - (440 * ${humidity}) / 100)`
+
+        this.viewElems.windDirection.innerText = `${windDirection}`;
+        this.viewElems.windSpeed.innerText = `${windSpeed} km/h`;
+        this.viewElems.airscrew1.style.animationDuration = `${rotationSpeed}s`;
+        this.viewElems.airscrew2.style.animationDuration = `${rotationSpeed}s`;
+
+        this.viewElems.weatherVisibility.innerText = `${visibility} km`;
+        this.viewElems.mountainIcon.style.opacity = visibilityMountain;
     }
 }
 

@@ -1,72 +1,317 @@
+@import "variables.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+h1 {font-size: 25px;}
+h2 {font-size: 21px;}
+h3 {font-size: 18px;}
+h4 {font-size: 16px;}
+h5 {font-size: 12px;}
+h6 {font-size: 10px;}
+
 body {
-    font-family: 'Baloo Thambi 2', cursive;
-    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-blue);
+    color: white;
 }
 
-h1 {
-    font-size: 300%;
+.container{
+    margin: 0 auto;
+    width: 96%;
 }
 
-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('https://picsum.photos/1600/1050');
-    background-size: cover;
-    background-position: center;
+.hazy_text {
+    opacity: .75;
 }
 
 .weather-info {
-    height: auto;
-    width: 40%;
-    max-width: 1000px;
-    max-height: 700px;
-    padding: 5%;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(245,245,245,0.9) 100%);
-    box-shadow: 0px 0px 10px 3px rgba(36,36,36,.05);
     transition-duration: .5s;
     transition-property: opacity;
 }
 
+#weatherSearchView {
+    display: block;
+}
+
 .weather-info__search-view {
+    margin: 20vh auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 200px;
+    width: 100%;
+    padding: 5%;
+    background-color: var(--light-blue);
+    box-shadow: 3px 4px 30px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
 }
 
-.weather-info__search-view label {
-    font-size: 200%;
+.weather-info__search__label {
+    font-size: 140%;
 }
 
-.weather-info__search-view input {
+.searchInput {
+    width: 100%;
+    height: 40px;
     padding: 10px;
     border: 2px solid black;
-    font-size: 150%;
+    font-size: 100%;
     text-align: center;
 }
 
-.weather-info__search-view button {
+.searchButton {
     padding: 10px 50px;
-    border: 2px solid black;
+    border: none;
     font-size: 100%;
+    color: white;
+    background-color: var(--light-green);
+    border-radius: 5px;
 }
+
+.searchButton:hover {
+    cursor: pointer;
+    opacity: .9;
+}
+
+.weatherSearchViewInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px auto 0 auto;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    height: 42px;
+    font-size: 12px;
+    background-color: var(--light-blue);
+    box-shadow: 3px 4px 30px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.weatherSearchViewInfo-icon {
+    width: 18px;
+    height: 18px;
+    background: url('../img/info.png') center center / cover no-repeat;
+}
+
+.weatherSearchViewInfo-text {
+    width: 85%;
+}
+
+/* ------   second view    ----- */
 
 .weather-info__forecast-view {
     display: none;
 }
 
-.weather-info__city {
+.weather-info__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 10px 5px 20px 5px;
+}
+
+.weather-info__header div {
+    display: flex;
+}
+
+.townIcon {
+    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+    background: url('../img/town.png') center center / cover no-repeat;
 }
 
 .weather-info__btn-return {
-    padding: 5px 25px;
-    border: 2px solid black;
+    width: 60px;
+    height: 28px;
+    border: none;
+    font-size: 11px;
+    background-color: var(--light-green);
+    color: white;
+    border-radius: 5px;
+}
+
+.weather-info__btn-return:hover {
+    cursor: pointer;
+    opacity: .9;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.weather-info__block {
+    width: 100%;
+    height: 170px;
+    margin-bottom: 15px;
+    padding: 25px 25px;
+    background-color: var(--light-blue);
+    box-shadow: 3px 4px 30px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+/* ------ temperature ------ */
+
+.weather-info__temperatures {
+    display: flex;
+    align-items: center;
+}
+
+.weather-info__temperatures-temp {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.weather-info__temperatures p {
+    margin-top: 25px;
+}
+
+.weatherIcon {
+    margin-top: 20px;
+    height: 100px;
+}
+
+.weather-info__humidity {
+    position: relative;
+}
+
+/* ------ humidity ------ */
+
+.humidity_graph {
+    position: absolute;
+    left: 39%;
+    bottom: 4%;
+}
+
+.humidity_graph svg {
+    transform: scale(.8);
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.humidity_graph svg circle {
+    width: 150px;
+    height: 150px;
+    fill: none;
+    stroke-width: 8;
+    stroke: #000;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    stroke-linecap: round;
+}
+
+.humidity_graph svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: #bebebe;
+}
+
+#humidity_data {
+    stroke: white;
+}
+
+.humidity_info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ------ wind ------ */
+
+.weather-info__wind {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wind-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.wind-info p {
+    margin-top: 25px;
+}
+
+.wind-windmills {
+    height: 100%;
+    position: relative;
+}
+
+.airscrew {
+    z-index: 1;
+    transform-origin: 50% 65%;
+    animation: windmill-rotate 3s linear infinite;
+}
+
+.airscrew-1 {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 10px;
+    bottom: 38px;
+    background: url('../img/wiatrak.png') center center / cover no-repeat;
+}
+
+.mast-1 {
+    height: 43px;
+    width: 4px;
+    position: absolute;
+    left: 38px;
+    bottom: 13px;
+    background: url('../img/wierza.png') center center / cover no-repeat;
+}
+
+.airscrew-2 {
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    left: 70px;
+    bottom: 20px;
+    background: url('../img/wiatrak.png') center center / cover no-repeat;
+}
+
+.mast-2 {
+    height: 32px;
+    width: 3px;
+    position: absolute;
+    left: 91px;
+    bottom: 1px;
+    background: url('../img/wierza.png') center center / cover no-repeat;
+}
+
+@keyframes windmill-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ------ visibility ------ */
+
+.weather-info__visibility-data {
+    margin: -10px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 88%;
+}
+
+.mountainIcon {
+    margin-bottom: 5px;
+    height: 90px;
+    width: 90px;
+    background: url('../img/goals.png') center center / cover no-repeat;
 }

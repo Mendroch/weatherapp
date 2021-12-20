@@ -7,28 +7,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <title>Weather App 1.1</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" media="(min-width: 768px)" href="css/tablet.css">
+    <link rel="stylesheet" media="(min-width: 1024px)" href="css/laptop.css">
+    <link rel="stylesheet" media="(min-width: 1440px)" href="css/desktop.css">
 </head>
 <body>
     <main>
-        <section class="weather-info" id="mainContainer">
-            <div id="weatherSearchView" class="weather-info__search-view">
-                <label class="weather-info__search__label" for="searchInput">Check weather:</label>
-                <input type="text" id="searchInput">
-                <button id="searchButton">search</button>
+        <section id="mainContainer" class="weather-info container">
+            <div id="weatherSearchView">
+                <div id="weatherSearchViewInfo" class="weatherSearchViewInfo">
+                    <div class="weatherSearchViewInfo-icon"></div>
+                    <p class="weatherSearchViewInfo-text">Wyszukuj po anglojęzycznych nazwach dużych miast</p>
+                </div>
+                <div class="weather-info__search-view">
+                    <label class="weather-info__search__label" for="searchInput">Check weather</label>
+                    <input type="text" id="searchInput" class="searchInput">
+                    <button id="searchButton" class="searchButton">search</button>
+                </div>
             </div>
 
             <div id="weatherForecastView" class="weather-info__forecast-view">
-                <button class="weather-info__btn-return" id="returnToSearchBtn">return</button>
+                <header class="weather-info__header">
+                    <div>
+                        <div class="townIcon"></div>
+                        <h1 id="weatherCity"></h1>
+                    </div>
+                    <button class="weather-info__btn-return" id="returnToSearchBtn">return</button>
+                </header>
 
-                <div class="weather-info__city">
-                    <h1 id="weatherCity"></h1>
-                    <img id="weatherIcon">
-                </div>
+                <div class="content">
+                    <section class="weather-info__temperatures weather-info__block">
+                        <div class="weather-info__temperatures-temp">
+                            <h2 id="weatherCurrentTemp"></h2>
+                            <div>
+                                <p><span class="hazy_text">Max-temp </span><span id="weatherMaxTemp"></span></p>
+                                <p><span class="hazy_text">Min-temp </span><span id="weatherMinTemp"></span></p>
+                            </div>
+                        </div>
+                        <img id="weatherIcon" class="weatherIcon">
+                    </section>
+    
+                    <section class="weather-info__humidity weather-info__block">
+                        <h2>Wilgotność</h2>
+                        <div id="humidity_graph" class="humidity_graph">
+                            <svg>
+                                <circle cx="70" cy="70" r="70"></circle>
+                                <circle cx="70" cy="70" r="70" id="humidity_data"></circle>
+                            </svg>
+                            <p id="humidity_info" class="humidity_info"></p>
+                        </div>
+                    </section>
 
-                <div class="weather-info__temperatures">
-                    <h2 id="weatherCurrentTemp"></h2>
-                    <p id="weatherMaxTemp"></p>
-                    <p id="weatherMinTemp"></p>
+                    <section class="weather-info__wind weather-info__block">
+                        <div class="wind-windmills">
+                            <h2>Wiatr</h2>
+                            <div id="airscrew1" class="airscrew-1 airscrew"></div>
+                            <div class="mast-1"></div>
+                            <div id="airscrew2" class="airscrew-2 airscrew"></div>
+                            <div class="mast-2"></div>
+                        </div>
+                        <div class="wind-info">
+                            <p><span class="hazy_text">Kierunek </span><span id="windDirection"></span></p>
+                            <p><span class="hazy_text">Prędkość </span><span id="windSpeed"></span></p>
+                        </div>
+                    </section>
+
+                    <section class="weather-info__visibility weather-info__block">
+                        <h2>Widoczność</h2>
+                        <div class="weather-info__visibility-data">
+                            <div id="mountainIcon" class="mountainIcon"></div>
+                            <p id="weatherVisibility"></p>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
